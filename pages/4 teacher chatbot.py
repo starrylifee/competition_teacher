@@ -31,7 +31,7 @@ def generate_student_view_chatbot(teacher_prompt):
             model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "당신은 교사가 만든 챗봇 프롬프트를 학생들이 이해할 수 있도록 변환하는 AI 조교입니다."},
-                {"role": "user", "content": f"다음 챗봇 프롬프트를 학생들이 쉽게 이해할 수 있도록 변환해주세요: {teacher_prompt}"}
+                {"role": "user", "content": f"다음 챗봇 프롬프트를 학생들이 쉽게 이해할 수 있도록 제목을 지어주세요. 예를 들어 'XX챗봇': {teacher_prompt}"}
             ]
         )
         return response.choices[0].message.content.strip()
