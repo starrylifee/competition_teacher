@@ -57,7 +57,7 @@ def save_to_notion_data(activity_code, teacher_prompt, email, password):
     return save_to_notion(NOTION_API_KEY, NOTION_DATABASE_ID, "vision", data)
 
 # 교사용 인터페이스
-st.title("🎓 교사용 이미지 분석 프롬프트 생성 도구")
+st.title("📸 교사용 이미지 분석 프롬프트 생성 도구")
 
 st.markdown("""
 **안내:** 이 도구를 사용하여 이미지 분석 API를 활용한 교육용 프롬프트를 쉽게 생성할 수 있습니다. 다음 중 하나의 방법을 선택하세요:
