@@ -30,8 +30,8 @@ def generate_student_view_chatbot(teacher_prompt):
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
-                {"role": "system", "content": "당신은 교사가 만든 챗봇 프롬프트를 학생들이 이해할 수 있도록 변환하는 AI 조교입니다."},
-                {"role": "user", "content": f"다음 챗봇 프롬프트를 학생들이 쉽게 이해할 수 있도록 제목을 지어주세요. 예를 들어 'XX챗봇': {teacher_prompt}"}
+                {"role": "system", "content": "당신은 교사가 만든 챗봇 프롬프트의 제목을 간단한 단어로 변환하는 AI 조교입니다."},
+                {"role": "user", "content": f"다음 챗봇 프롬프트의 제목을 지어주세요. 예를 들어 'XX챗봇': {teacher_prompt}"}
             ]
         )
         return response.choices[0].message.content.strip()
