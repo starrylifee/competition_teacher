@@ -76,7 +76,7 @@ with col1:
 with col2:
     st.markdown(
         """
-        <h4>4. 교사용 챗봇 생성 도구</h4>
+        <h4>4. 교사용 챗봇 프롬프트 생성 도구</h4>
         <a href="https://prompt-input.streamlit.app/teacher_chatbot" target="_blank" style="text-decoration: none;">
             <span style="font-size: 100px;">🤖</span>
             <div style="text-align: center; font-size: 20px;">클릭하세요</div>
