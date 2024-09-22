@@ -28,7 +28,7 @@ st.markdown("""
 
 # 강조 문구
 st.markdown("""
-**이곳에서 저장한 프롬프트는 [학생용 앱](https://students-ai.streamlit.app/)에서 불러와 안전하게 AI를 사용할 수 있습니다.**
+**이곳에서 저장한 프롬프트는 [학생용 앱](https://students.streamlit.app/)에서 불러와 안전하게 AI를 사용할 수 있습니다.**
 """)
 
 # 도구 링크 및 설명
@@ -38,7 +38,7 @@ with col1:
     st.markdown(
         """
         <h4>1. 교사용 이미지분석 프롬프트 생성 도구</h4>
-        <a href="https://teachers-ai.streamlit.app/teacher_vision" target="_blank" style="text-decoration: none;">
+        <a href="https://prompt-input.streamlit.app/teacher_vision" target="_blank" style="text-decoration: none;">
             <span style="font-size: 100px;">🖼️</span>
             <div style="text-align: center; font-size: 20px;">클릭하세요</div>
         </a>
@@ -51,7 +51,7 @@ with col2:
     st.markdown(
         """
         <h4>2. 교사용 텍스트 프롬프트 생성 도구</h4>
-        <a href="https://teachers-ai.streamlit.app/teacher_text" target="_blank" style="text-decoration: none;">
+        <a href="https://prompt-input.streamlit.app/teacher_text" target="_blank" style="text-decoration: none;">
             <span style="font-size: 100px;">📝</span>
             <div style="text-align: center; font-size: 20px;">클릭하세요</div>
         </a>
@@ -64,7 +64,7 @@ with col1:
     st.markdown(
         """
         <h4>3. 교사용 이미지 생성 프롬프트 도구</h4>
-        <a href="https://teachers-ai.streamlit.app/teacher_image" target="_blank" style="text-decoration: none;">
+        <a href="https://prompt-input.streamlit.app/teacher_image" target="_blank" style="text-decoration: none;">
             <span style="font-size: 100px;">🖌️</span>
             <div style="text-align: center; font-size: 20px;">클릭하세요</div>
         </a>
@@ -76,8 +76,21 @@ with col1:
 with col2:
     st.markdown(
         """
-        <h4>4. 교사용 프롬프트 관리 도구</h4>
-        <a href="https://teachers-ai.streamlit.app/search_delete" target="_blank" style="text-decoration: none;">
+        <h4>4. 교사용 챗봇 생성 도구</h4>
+        <a href="https://prompt-input.streamlit.app/teacher_chatbot" target="_blank" style="text-decoration: none;">
+            <span style="font-size: 100px;">🤖</span>
+            <div style="text-align: center; font-size: 20px;">클릭하세요</div>
+        </a>
+        <p>이 도구를 사용하여 교육 활동에 필요한 맞춤형 챗봇을 만들 수 있습니다. 학생들이 사용할 챗봇을 손쉽게 생성하세요.</p>
+        """,
+        unsafe_allow_html=True
+    )
+
+with col1:
+    st.markdown(
+        """
+        <h4>5. 교사용 프롬프트 관리 도구</h4>
+        <a href="https://prompt-input.streamlit.app/search_delete" target="_blank" style="text-decoration: none;">
             <span style="font-size: 100px;">🛠️</span>
             <div style="text-align: center; font-size: 20px;">클릭하세요</div>
         </a>
