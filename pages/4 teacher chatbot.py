@@ -4,7 +4,7 @@ import requests
 from datetime import datetime
 
 # 페이지 설정
-set_page_config("교사용 챗봇 프롬프트", "🤖", "#E0FFFF")
+set_page_config("교사용 챗봇 프롬프트", "🤖", "#F0FFF0")
 
 # secrets 로드
 secrets = load_secrets()
