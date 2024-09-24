@@ -99,7 +99,7 @@ if prompt_method == "샘플 프롬프트 이용하기":
 
 # 직접 프롬프트 입력
 elif prompt_method == "직접 입력":
-    example_prompt = "예시: 너는 학생들의 질문에 답변해주는 챗봇입니다. 학생이 질문하면 친절하게 답변해 주세요."
+    example_prompt = "예시: 너는 학생들의 A와 관련된 질문에 답변해주는 챗봇입니다. 학생이 질문하면 친절하게 답변해 주세요."
     st.session_state.direct_prompt_chatbot = st.text_area("✏️ 직접 입력할 프롬프트:", example_prompt, height=300)
     st.session_state.final_prompt_chatbot = st.session_state.direct_prompt_chatbot
 
@@ -117,7 +117,7 @@ elif prompt_method == "인공지능 도움 받기":
                         model="gpt-4o-mini",
                         messages=[
                             {"role": "system", "content": "당신은 챗봇 프롬프트 생성을 돕는 AI입니다."},
-                            {"role": "user", "content": f"프롬프트의 주제는: {input_topic}입니다. 이 주제를 바탕으로 창의적이고 교육적인 챗봇 프롬프트를 생성해 주세요."}
+                            {"role": "user", "content": f"프롬프트의 주제는: {input_topic}입니다. 이 주제를 바탕으로 창의적이고 교육적인 챗봇 시스템 프롬프트를 생성해 주세요."}
                         ]
                     )
                     
@@ -152,7 +152,7 @@ if st.session_state.final_prompt_chatbot:
     email = st.text_input("📧 Email (선택사항) 학생의 생성결과물을 받아볼 수 있습니다.", value=st.session_state.get('email_chatbot', '')).strip()
     password = st.text_input("🔒 Password (선택사항) 저장한 프롬프트를 조회, 삭제할 수 있습니다.", value=st.session_state.get('password_chatbot', ''), type="password").strip()
 
-    st.markdown("**[https://students-ai.streamlit.app/](https://students-ai.streamlit.app/)** 에서 학생들이 이 활동 코드를 입력하면 해당 프롬프트를 불러올 수 있습니다.")
+    st.markdown("**[https://students.streamlit.app/](https://students.streamlit.app/)** 에서 학생들이 이 활동 코드를 입력하면 해당 프롬프트를 불러올 수 있습니다.")
 
 # 서버 저장 버튼은 항상 표시되며, 입력 검증 후 동작
 if st.button("💾 프롬프트를 서버에 저장"):
