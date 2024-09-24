@@ -31,7 +31,7 @@ def generate_student_view(teacher_prompt):
             model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "당신은 수업용 프롬프트를 학생들이 필요한 내용으로 변환하는 AI 조교입니다."},
-                {"role": "user", "content": f"다음 수업용 프롬프트를 학생들이 할 미션으로 아주 간단하게 변환해주세요: {teacher_prompt}"}
+                {"role": "user", "content": f"다음 text 생성 프롬프트의 제목을 간단하게 지어주고, 학생이 입력해야할 내용을 간단하게 말해주세요.: {teacher_prompt}"}
             ]
         )
         return response.choices[0].message.content.strip()

@@ -30,8 +30,8 @@ def generate_student_view(teacher_prompt):
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
-                {"role": "system", "content": "당신은 수업용 프롬프트를 학생들이 필요한 내용으로 변환하는 AI 조교입니다."},
-                {"role": "user", "content": f"다음 수업용 프롬프트를 학생들이 할 미션으로 아주 간단하게 변환해주세요: {teacher_prompt}"}
+                {"role": "system", "content": "당신은 교사가 만든 vision 프롬프트의 제목을 간단한 단어로 변환하는 AI 조교입니다."},
+                {"role": "user", "content": f"다음 vision 프롬프트의 제목을 지어주고, 이 프롬프트와 인공지능 모델을 이용하기 위해 학생이 입력해야할 이미지를 말해주세요.: {teacher_prompt}"}
             ]
         )
         return response.choices[0].message.content.strip()
