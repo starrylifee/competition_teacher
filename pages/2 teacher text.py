@@ -109,7 +109,6 @@ if prompt_method == "샘플 프롬프트 이용하기":
     selected_sample = st.selectbox("샘플 프롬프트를 선택하세요:", ["선택하세요"] + list(sample_prompts.keys()))
 
     if selected_sample != "선택하세요":
-        st.info(f"선택된 프롬프트: {sample_prompts[selected_sample]}")
         st.session_state.direct_prompt = st.text_area("✏️ 샘플 프롬프트 수정 가능:", value=sample_prompts[selected_sample], height=300)
         st.session_state.final_prompt = st.session_state.direct_prompt
 
