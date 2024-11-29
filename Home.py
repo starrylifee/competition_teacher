@@ -6,15 +6,18 @@ st.set_page_config(
     page_icon="🧑‍🏫",  # 브라우저 탭에 표시될 아이콘 (이모지 또는 이미지 파일 경로)
 )
 
-# Streamlit의 기본 메뉴와 푸터 숨기기
-hide_menu_style = """
+# Streamlit의 기본 메뉴와 푸터 숨기기 및 특정 이미지 숨기기
+hide_specific_elements = """
     <style>
     #MainMenu {visibility: hidden; }
     footer {visibility: hidden;}
     header {visibility: hidden;}
+    img[data-testid="appCreatorAvatar"] {
+        display: none; /* 이미지를 완전히 숨김 */
+    }
     </style>
 """
-st.markdown(hide_menu_style, unsafe_allow_html=True)
+st.markdown(hide_specific_elements, unsafe_allow_html=True)
 
 # 홈 화면 제목
 st.title("안전하게 경험하는 인공지능 첫걸음")

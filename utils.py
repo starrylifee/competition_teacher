@@ -21,31 +21,39 @@ def set_page_config(title, icon, background_color):
     </style>
     """
     
-    # 기본 메뉴와 푸터 숨기기
+    # 기본 메뉴와 푸터 숨기기 + 특정 이미지 숨기기
     hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden; }
         footer {visibility: hidden;}
         header {visibility: hidden;}
+        img[data-testid="appCreatorAvatar"] {
+            display: none; /* 특정 이미지를 숨김 */
+        }
         </style>
         <script>
         document.addEventListener("DOMContentLoaded", function() {
             var mainMenu = document.getElementById('MainMenu');
-            if (mainMenu) {{
+            if (mainMenu) {
                 mainMenu.style.display = 'none';
-            }}
+            }
             var footer = document.getElementsByTagName('footer')[0];
-            if (footer) {{
+            if (footer) {
                 footer.style.display = 'none';
-            }}
+            }
             var header = document.getElementsByTagName('header')[0];
-            if (header) {{
+            if (header) {
                 header.style.display = 'none';
-            }}
+            }
+            
+            // 특정 이미지 숨기기
+            var creatorAvatar = document.querySelector('img[data-testid="appCreatorAvatar"]');
+            if (creatorAvatar) {
+                creatorAvatar.style.display = 'none';
+            }
         });
         </script>
     """
-    
     st.markdown(hide_menu_style, unsafe_allow_html=True)
     st.markdown(page_bg_css, unsafe_allow_html=True)
 
