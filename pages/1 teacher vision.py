@@ -165,8 +165,8 @@ if st.session_state.final_prompt:
         st.session_state['activity_code'] = activity_code
 
     # Email 및 Password 입력
-    email = st.text_input("📧 Email (선택사항) 학생의 생성결과물을 받아볼 수 있습니다.", value=st.session_state.get('email', '')).strip()
-    password = st.text_input("🔒 Password (선택사항) 저장한 프롬프트를 조회, 삭제할 수 있습니다.", value=st.session_state.get('password', ''), type="password").strip()
+    email = st.text_input("📧 Email (필수) 학생의 생성결과물을 받아볼 수 있습니다.", value=st.session_state.get('email', '')).strip()
+    password = st.text_input("🔒 Password (필수) 저장한 프롬프트를 조회, 삭제할 수 있습니다.", value=st.session_state.get('password', ''), type="password").strip()
 
     st.markdown("**[https://students.streamlit.app/](https://students.streamlit.app/)** 에서 학생들이 이 활동 코드를 입력하면 해당 프롬프트를 불러올 수 있습니다.")
 
@@ -176,6 +176,10 @@ if st.button("💾 프롬프트를 서버에 저장"):
         st.error("⚠️ 프롬프트가 없습니다. 먼저 프롬프트를 생성하세요.")
     elif not activity_code:
         st.error("⚠️ 활동 코드를 입력하세요.")
+    elif not email:
+        st.error("⚠️ 이메일을 입력하세요.")
+    elif not password:
+        st.error("⚠️ 비밀번호를 입력하세요.")
     elif password and password.isnumeric():
         st.error("⚠️ 비밀번호는 숫자만 입력할 수 없습니다. 영문 또는 영문+숫자 조합을 사용하세요.")
     else:

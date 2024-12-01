@@ -135,24 +135,27 @@ else:
     st.session_state['activity_code'] = activity_code
 
 # Email 및 Password 입력 (활동 코드가 이메일 위로 이동됨)
-email = st.text_input("📧 Email (선택사항)", value=st.session_state.get('email', '')).strip()
-password = st.text_input("🔒 Password (선택사항)", value=st.session_state.get('password', ''), type="password").strip()
+email = st.text_input("📧 Email (필수)", value=st.session_state.get('email', '')).strip()
+password = st.text_input("🔒 Password (필수)", value=st.session_state.get('password', ''), type="password").strip()
 
 # 프롬프트 저장
 if st.button("💾 프롬프트 저장") and activity_code:
-    if input_topic_cleaned:
-        if password and password.isnumeric():
-            st.error("⚠️ 비밀번호는 숫자만 입력할 수 없습니다.")
-        else:
-            with st.spinner('💾 데이터를 저장하는 중입니다...'):
-                if save_to_notion_data(activity_code, input_topic_cleaned, email, password, adjectives_json):
-                    st.success(f"🎉 프롬프트가 성공적으로 저장되었습니다.\n\n"
-                               f"**활동 코드:** {activity_code}\n"
-                               f"**이미지 대상:** {input_topic_cleaned}\n"
-                               f"**형용사:** {adjectives_json}\n"
-                               f"**이메일:** {email}\n"
-                               f"**비밀번호:** {'[입력됨]' if password else '[입력되지 않음]'}")
-                else:
-                    st.error("❌ 프롬프트 저장 중 오류가 발생했습니다.")
+    if not email:
+        st.error("⚠️ 이메일을 입력하세요.")
+    elif not password:
+        st.error("⚠️ 비밀번호를 입력하세요.")
+    elif password.isnumeric():
+        st.error("⚠️ 비밀번호는 숫자만 입력할 수 없습니다. 영문 또는 영문+숫자 조합을 사용하세요.")
+    elif input_topic_cleaned:
+        with st.spinner('💾 데이터를 저장하는 중입니다...'):
+            if save_to_notion_data(activity_code, input_topic_cleaned, email, password, adjectives_json):
+                st.success(f"🎉 프롬프트가 성공적으로 저장되었습니다.\n\n"
+                           f"**활동 코드:** {activity_code}\n"
+                           f"**이미지 대상:** {input_topic_cleaned}\n"
+                           f"**형용사:** {adjectives_json}\n"
+                           f"**이메일:** {email}\n"
+                           f"**비밀번호:** {'[입력됨]' if password else '[입력되지 않음]'}")
+            else:
+                st.error("❌ 프롬프트 저장 중 오류가 발생했습니다.")
     else:
         st.error("⚠️ 이미지 대상을 입력하세요.")
