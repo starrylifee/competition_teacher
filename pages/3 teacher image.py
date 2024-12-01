@@ -135,8 +135,8 @@ else:
     st.session_state['activity_code'] = activity_code
 
 # Email 및 Password 입력 (활동 코드가 이메일 위로 이동됨)
-email = st.text_input("📧 Email (필수)", value=st.session_state.get('email', '')).strip()
-password = st.text_input("🔒 Password (필수)", value=st.session_state.get('password', ''), type="password").strip()
+email = st.text_input("📧 Email (필수) 학생의 생성결과물을 받아볼 수 있습니다.", value=st.session_state.get('email', '')).strip()
+password = st.text_input("🔒 Password (필수) 저장한 프롬프트를 조회, 삭제할 수 있습니다.", value=st.session_state.get('password', ''), type="password").strip()
 
 # 프롬프트 저장
 if st.button("💾 프롬프트 저장") and activity_code:
